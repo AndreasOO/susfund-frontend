@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {TopHeaderModule} from './top-header/top-header.module';
 import {FooterModule} from './footer/footer.module';
 import {CaseOverviewModule} from './case-overview/case-overview.module';
+import {CasesListModule} from './cases-list/cases-list.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {CaseOverviewModule} from './case-overview/case-overview.module';
     AppRoutingModule,
     TopHeaderModule,
     FooterModule,
-    CaseOverviewModule
+    CaseOverviewModule,
+    CasesListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
