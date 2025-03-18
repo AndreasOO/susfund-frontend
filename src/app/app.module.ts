@@ -7,6 +7,8 @@ import {TopHeaderModule} from './top-header/top-header.module';
 import {FooterModule} from './footer/footer.module';
 import {CaseOverviewModule} from './case-overview/case-overview.module';
 import {CasesListModule} from './cases-list/cases-list.module';
+import {CasesServicesModule} from './cases-services/cases-services.module';
+import {provideHttpClient} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,12 @@ import {CasesListModule} from './cases-list/cases-list.module';
     TopHeaderModule,
     FooterModule,
     CaseOverviewModule,
-    CasesListModule
+    CasesListModule,
+    CasesServicesModule
   ],
-  providers: [],
+  providers: [
+    provideHttpClient()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

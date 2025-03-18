@@ -12,26 +12,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row"><a [routerLink]="['/overview']"  class="text-light nav-link">234566</a></th>
-        <td><a [routerLink]="['/overview']"  class="text-light nav-link">Sustainable Project</a></td>
-        <td><a [routerLink]="['/overview']"  class="text-light nav-link">Green Company - 555542</a></td>
-        <td><a [routerLink]="['/overview']"  class="text-light nav-link">Sustainable Sally</a></td>
-        <td><a [routerLink]="['/overview']"  class="text-light nav-link">Hank the Tank</a></td>
-      </tr>
-      <tr>
-        <th scope="row"><a [routerLink]="['/overview']"  class="text-light nav-link">234567</a></th>
-        <td><a [routerLink]="['/overview']"  class="text-light nav-link">Sustainable Investment</a></td>
-        <td><a [routerLink]="['/overview']"  class="text-light nav-link">Future Company - 551255</a></td>
-        <td><a [routerLink]="['/overview']"  class="text-light nav-link">Sustainable Sally</a></td>
-        <td><a [routerLink]="['/overview']"  class="text-light nav-link">Hank the Tank</a></td>
-      </tr>
-      <tr>
-        <th scope="row"><a [routerLink]="['/overview']"  class="text-light nav-link">234568</a></th>
-        <td><a [routerLink]="['/overview']"  class="text-light nav-link">Eat The Rich</a></td>
-        <td><a [routerLink]="['/overview']"  class="text-light nav-link">The Crushers - 544112</a></td>
-        <td><a [routerLink]="['/overview']"  class="text-light nav-link">Sustainable Sally</a></td>
-        <td><a [routerLink]="['/overview']"  class="text-light nav-link">Hank the Tank</a></td>
+      <tr *ngFor="let caseLazy of caseList">
+        <th scope="row"><a [routerLink]="['/overview']"  class="text-light nav-link">{{caseLazy.id}}</a></th>
+        <td><a [routerLink]="['/overview']"  class="text-light nav-link">{{caseLazy.name}}</a></td>
+        <td><a [routerLink]="['/overview']"  class="text-light nav-link">{{caseLazy.companyName}} - {{caseLazy.companyId}}</a></td>
+        <td><a [routerLink]="['/overview']"  class="text-light nav-link">{{caseLazy.caseManager}}</a></td>
+        <td><a [routerLink]="['/overview']"  class="text-light nav-link">{{caseLazy.caseManager}}</a></td>
       </tr>
       </tbody>
     </table>
