@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {TopHeaderModule} from './top-header/top-header.module';
 import {FooterModule} from './footer/footer.module';
-import {CaseOverviewModule} from './case-overview/case-overview.module';
+import {CaseViewModule} from './case-view/case-view.module';
 import {CasesListModule} from './cases-list/cases-list.module';
 import {CasesServicesModule} from './cases-services/cases-services.module';
 import {provideHttpClient} from '@angular/common/http';
@@ -19,7 +19,7 @@ import {provideHttpClient} from '@angular/common/http';
     AppRoutingModule,
     TopHeaderModule,
     FooterModule,
-    CaseOverviewModule,
+    CaseViewModule,
     CasesListModule,
     CasesServicesModule
   ],
