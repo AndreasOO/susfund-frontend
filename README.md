@@ -1,4 +1,12 @@
 # SusFundFrontend
+To get started with the project. 
+1. Install npm and angular cli
+2. Clone the project locally
+3. Navigate to project folder
+4. run npm install
+5. run ng serve
+
+For more detailed instructions, visit: https://www.makeuseof.com/angular-app-clone-run/ 
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
 
