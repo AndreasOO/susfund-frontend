@@ -21,7 +21,9 @@ export class CasesFetcherService {
                         companyName:caseDTO.organization.name,
                         companyId:caseDTO.organization.id,
                         caseManager:caseDTO.caseManager.name,
-                        controller:caseDTO.caseManager.name
+                        controller:caseDTO.caseManager.name,
+                        caseStatus:caseDTO.caseStatus.name,
+                        caseDecisionType:caseDTO.caseDecisionType.name
                       }
     })))
   }

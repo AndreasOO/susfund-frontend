@@ -1,6 +1,6 @@
 <section>
   <div class="container">
-    <h3>Assigned Cases</h3>
+    <h3>Cases</h3>
     <table class="table table-striped table-dark">
       <thead>
       <tr>
@@ -9,6 +9,8 @@
         <th scope="col">Company</th>
         <th scope="col">Case Manager</th>
         <th scope="col">Controller</th>
+        <th scope="col">Case Status</th>
+        <th scope="col">Case Decision Type</th>
       </tr>
       </thead>
       <tbody>
@@ -18,6 +20,8 @@
         <td><a [routerLink]="['/overview']"  class="text-light nav-link">{{caseLazy.companyName}} - {{caseLazy.companyId}}</a></td>
         <td><a [routerLink]="['/overview']"  class="text-light nav-link">{{caseLazy.caseManager}}</a></td>
         <td><a [routerLink]="['/overview']"  class="text-light nav-link">{{caseLazy.caseManager}}</a></td>
+        <td>{{caseLazy.caseStatus}}</td>
+        <td>{{caseLazy.caseDecisionType}}</td>
       </tr>
       </tbody>
     </table>
