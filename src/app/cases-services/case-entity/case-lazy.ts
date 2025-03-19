@@ -4,5 +4,7 @@ export interface CaseLazy {
   companyName:string,
   companyId:number,
   caseManager:string,
-  controller:string
+  controller:string,
+  caseStatus:string,
+  caseDecisionType:string
 }
