@@ -1,5 +1,10 @@
 <div >
-<p>general-overview works!</p>
-  <p>Case: {{caseId}}</p>
-
+<p>Case: </p>
+  <p>{{caseDetails?.id}}</p>
+  <p>{{caseDetails?.name}}</p>
+  <p>{{caseDetails?.caseManager?.name}}</p>
+  <p>{{caseDetails?.organization?.name}}</p>
+  <p>{{caseDetails?.organization?.organizationType?.name}}</p>
+  <p>{{caseDetails?.caseStatus?.name}}</p>
+  <p>{{caseDetails?.caseDecisionType?.name}}</p>
 </div>

@@ -1,11 +1,12 @@
 import {Component, Input} from '@angular/core';
+import {CaseDetails} from '../../cases-services/case-entity/case-details';
 
 @Component({
-  selector: 'app-general-overview',
+  selector: 'app-case-overview',
   standalone: false,
   templateUrl: './case-overview.component.html',
   styleUrl: './case-overview.component.css'
 })
 export class CaseOverviewComponent {
-  @Input() caseId:string|undefined = '';
+  @Input() caseDetails:CaseDetails|undefined;
 }
