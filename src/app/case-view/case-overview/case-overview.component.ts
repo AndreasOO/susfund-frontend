@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-general-overview',
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './case-overview.component.css'
 })
 export class CaseOverviewComponent {
-
+  @Input() caseId:string|undefined = '';
 }
