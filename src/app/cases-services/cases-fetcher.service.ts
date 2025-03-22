@@ -3,6 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {map,Observable} from 'rxjs';
 import {CaseDTO} from './case-entity/case-dto';
 import {CaseLazy} from './case-entity/case-lazy';
+import {CaseDetails} from './case-entity/case-details';
+import {Organization} from './case-entity/organization';
+import {CaseManager} from './case-entity/case-manager';
+import {CaseStatus} from './case-entity/case-status';
+import {CaseDecisionType} from './case-entity/case-decision-type';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +17,7 @@ export class CasesFetcherService {
   constructor(private http:HttpClient) {
   }
 
-  getAllCases():Observable<CaseLazy[]> {
+  public getAllCases():Observable<CaseLazy[]> {
     return this.http.get<CaseDTO[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases")
                     .pipe(map(casesDTOs => casesDTOs.map(caseDTO => {
                       return {
@@ -28,4 +33,17 @@ export class CasesFetcherService {
     })))
   }
 
+  public getCaseById(id:string | undefined):Observable<CaseDetails> {
+    return this.http.get<CaseDTO>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id)
+                    .pipe(map(caseDTO => {
+                      return {
+                        id:caseDTO.id,
+                        name:caseDTO.name,
+                        organization:caseDTO.organization,
+                        caseManager:caseDTO.caseManager,
+                        caseStatus:caseDTO.caseStatus,
+                        caseDecisionType:caseDTO.caseDecisionType
+                      }
+    }))
+  }
 }
