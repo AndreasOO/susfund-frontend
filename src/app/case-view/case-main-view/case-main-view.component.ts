@@ -22,7 +22,7 @@ export class CaseMainViewComponent implements OnInit {
     ngOnInit() {
       this.caseId = this.router.url.split("/").pop();
       this.fetcher.getCaseById(this.caseId).subscribe(caseDetails => this.caseDetails = caseDetails!)
-
+      console.log(this.caseDetails)
     }
 
 }
