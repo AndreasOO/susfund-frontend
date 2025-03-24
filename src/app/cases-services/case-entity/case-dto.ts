@@ -2,6 +2,7 @@ import {Organization} from './organization';
 import {CaseManager} from './case-manager';
 import {CaseStatus} from './case-status';
 import {CaseDecisionType} from './case-decision-type';
+import {CaseDecision} from './case-decision';
 
 export interface CaseDTO {
   id:number,
@@ -9,5 +10,6 @@ export interface CaseDTO {
   organization:Organization,
   caseManager:CaseManager,
   caseStatus:CaseStatus,
-  caseDecisionType:CaseDecisionType
+  caseDecisionType:CaseDecisionType,
+  caseDecision:CaseDecision
 }
