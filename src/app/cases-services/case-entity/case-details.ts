@@ -3,6 +3,7 @@ import {CaseManager} from './case-manager';
 import {CaseStatus} from './case-status';
 import {CaseDecisionType} from './case-decision-type';
 import {CaseDecision} from './case-decision';
+import {CaseAssessment} from './case-assessment';
 
 export interface CaseDetails {
   id:number,
@@ -12,4 +13,5 @@ export interface CaseDetails {
   caseStatus:CaseStatus,
   caseDecisionType:CaseDecisionType,
   caseDecision:CaseDecision
+  caseAssessment:CaseAssessment
 }

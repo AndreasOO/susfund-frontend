@@ -43,7 +43,8 @@ export class CasesFetcherService {
                         caseManager:caseDTO.caseManager,
                         caseStatus:caseDTO.caseStatus,
                         caseDecisionType:caseDTO.caseDecisionType,
-                        caseDecision:caseDTO.caseDecision
+                        caseDecision:caseDTO.caseDecision,
+                        caseAssessment:caseDTO.caseAssessment
                       }
     }))
   }
