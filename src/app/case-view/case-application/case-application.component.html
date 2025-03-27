@@ -1,5 +1,10 @@
 <div >
   <p>Application: </p>
-  <p>{{caseDetails().id}}</p>
-  <p>{{caseDetails().name}}</p>
+  <p>{{caseDetails().caseApplication.id}}</p>
+  <p>{{caseDetails().caseApplication.submission_date}}</p>
+  <p>{{caseDetails().caseApplication.questionResults[0].applicationQuestion.title}}</p>
+  <p>{{caseDetails().caseApplication.questionResults[0].applicationQuestion.preamble}}</p>
+  <p>{{caseDetails().caseApplication.questionResults[0].applicationQuestion.assisting_text}}</p>
+  <p>{{caseDetails().caseApplication.questionResults[0].applicationQuestion.applicationSection.name}}</p>
+  <p>{{caseDetails().caseApplication.questionResults[0].answer}}</p>
 </div>
