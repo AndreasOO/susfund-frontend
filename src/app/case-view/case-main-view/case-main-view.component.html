@@ -1,4 +1,6 @@
-<div class="row row-cols-lg-4 row-cols-2">
-  <app-case-sidebar-menu class="p-0 m-0" [caseId]="caseId"></app-case-sidebar-menu>
+<div class="row">
+  <app-case-sidebar-menu class="p-0 m-0 col-lg-3 col-4" [caseId]="caseId"></app-case-sidebar-menu>
+  <div class="col-lg-9 col-8">
   <router-outlet class="visually-hidden"></router-outlet>
+  </div>
 </div>
