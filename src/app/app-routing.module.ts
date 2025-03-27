@@ -5,9 +5,7 @@ import {MyCasesListComponent} from './cases-list/my-cases-list/my-cases-list.com
 import {CaseMainViewComponent} from './case-view/case-main-view/case-main-view.component';
 
 const routes: Routes = [
-  {path: 'overview', component: CaseOverviewComponent},
   {path: 'cases', component: MyCasesListComponent},
-  {path: 'cases/:id', component: CaseMainViewComponent},
   {path: '', component: MyCasesListComponent}
 ];
 

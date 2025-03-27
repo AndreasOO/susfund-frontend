@@ -16,10 +16,10 @@ import {provideHttpClient} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    CaseViewModule, // includes child routing, must be imported before AppRoutingModule
     AppRoutingModule,
     TopHeaderModule,
     FooterModule,
-    CaseViewModule,
     CasesListModule,
     CasesServicesModule
   ],
