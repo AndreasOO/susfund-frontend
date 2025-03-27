@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject, Signal} from '@angular/core';
+import {ROUTER_OUTLET_DATA} from '@angular/router';
+import {CaseDetails} from '../../cases-services/case-entity/case-details';
 
 @Component({
   selector: 'app-case-decision',
@@ -7,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './case-decision.component.css'
 })
 export class CaseDecisionComponent {
-
+  caseDetails = inject(ROUTER_OUTLET_DATA) as Signal<CaseDetails>
 }

@@ -4,6 +4,7 @@ import {OnInit} from '@angular/core';
 import {CasesFetcherService} from '../../cases-services/cases-fetcher.service';
 import {CaseDTO} from '../../cases-services/case-entity/case-dto';
 import {CaseDetails} from '../../cases-services/case-entity/case-details';
+import {ROUTER_OUTLET_DATA} from '@angular/router';
 
 @Component({
   selector: 'app-case-main-view',
@@ -20,7 +21,7 @@ export class CaseMainViewComponent implements OnInit {
     }
 
     ngOnInit() {
-      this.caseId = this.router.url.split("/").pop();
+      this.caseId = this.router.url.split("/")[this.router.url.split("/").indexOf("cases")+1];
       this.fetcher.getCaseById(this.caseId).subscribe(caseDetails => this.caseDetails = caseDetails!)
       console.log(this.caseDetails)
     }
