@@ -15,7 +15,7 @@ export class CaseMainViewComponent implements OnInit {
   caseId:string | undefined
   caseDetails:CaseDetails | undefined
 
-  constructor(private router:Router, private fetcher:CasesFetcherService) {
+  constructor(public router:Router, private fetcher:CasesFetcherService) {
 
     }
 
