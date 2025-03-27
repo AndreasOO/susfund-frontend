@@ -21,7 +21,8 @@ const routes: Routes = [
     { path: 'assessment', component: CaseAssessmentComponent},
     { path: 'decision', component: CaseDecisionComponent},
     { path: 'history', component: CaseHistoryComponent},
-    { path: 'documents', component: CaseDocumentsComponent}
+    { path: 'documents', component: CaseDocumentsComponent},
+    { path: '', component: CaseOverviewComponent}
   ]},
 ];
 
