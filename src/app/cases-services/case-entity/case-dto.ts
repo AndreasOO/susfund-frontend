@@ -3,6 +3,7 @@ import {CaseManager} from './case-manager';
 import {CaseStatus} from './case-status';
 import {CaseDecisionType} from './case-decision-type';
 import {CaseDecision} from './case-decision';
+import {CaseAssessment} from './case-assessment';
 import {CaseApplication} from './case-application';
 
 export interface CaseDTO {
@@ -12,6 +13,7 @@ export interface CaseDTO {
   caseManager:CaseManager,
   caseStatus:CaseStatus,
   caseDecisionType:CaseDecisionType,
-  caseDecision:CaseDecision,
+  caseDecision:CaseDecision
+  caseAssessment:CaseAssessment
   caseApplication:CaseApplication
 }
