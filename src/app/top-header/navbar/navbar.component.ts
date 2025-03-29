@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  constructor(public router: Router) {
+
+  }
+
+  get isCaseView() : boolean {
+    return this.router.url.split('/').pop()!=='' && this.router.url.split('/').pop()!=='cases';
+  }
 }
