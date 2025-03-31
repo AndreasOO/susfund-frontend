@@ -8,6 +8,7 @@ import {Organization} from './case-entity/organization';
 import {CaseManager} from './case-entity/case-manager';
 import {CaseStatus} from './case-entity/case-status';
 import {CaseDecisionType} from './case-entity/case-decision-type';
+import {CaseBudget} from './case-entity/case-budget';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,8 @@ export class CasesFetcherService {
                         caseDecisionType:caseDTO.caseDecisionType,
                         caseDecision:caseDTO.caseDecision,
                         caseApplication:caseDTO.caseApplication,
-                        caseAssessment:caseDTO.caseAssessment
+                        caseAssessment:caseDTO.caseAssessment,
+                        caseBudget:caseDTO.caseBudget
                       }
     }))
   }
