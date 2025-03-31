@@ -2,7 +2,7 @@
   <h1 class="mb-3">Application</h1>
   <div *ngIf="questions" class="container">
     <div *ngFor="let sections of questions" class="row mb-4">
-      <h3>{{ sections[0]?.applicationQuestion.applicationSection.name}}</h3>
+      <h3>{{ sections[0].applicationQuestion.applicationSection.name}}</h3>
       <div *ngFor="let question of sections" class="col-8">
         <div>
           <div class="card rounded-4 p-3 bg-dark-subtle text-dark m-2">

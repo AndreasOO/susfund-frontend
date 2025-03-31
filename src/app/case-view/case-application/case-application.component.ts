@@ -19,11 +19,10 @@ export class CaseApplicationComponent implements OnInit {
   ngOnInit() {
 
     this.questions = [...new Set(this.caseDetails()
-      .caseApplication?.questionResults.map(result => result.applicationQuestion?.applicationSection))]
-      .sort((a, b) => a.name.localeCompare(b.name))
+      .caseApplication?.questionResults.map(result => result.applicationQuestion?.applicationSection.id))]
       .map(section => {
         return (this.caseDetails().caseApplication?.questionResults ?? [])
-          .filter(questionResult => questionResult.applicationQuestion?.applicationSection.id === section.id)
+          .filter(questionResult => questionResult.applicationQuestion?.applicationSection.id === section)
       });
 
   }
