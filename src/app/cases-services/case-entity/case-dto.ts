@@ -6,6 +6,7 @@ import {CaseDecision} from './case-decision';
 import {CaseAssessment} from './case-assessment';
 import {CaseApplication} from './case-application';
 import {CaseBudget} from './case-budget';
+import {HistoryEvent} from './history-event';
 
 export interface CaseDTO {
   id:number,
@@ -18,4 +19,5 @@ export interface CaseDTO {
   caseAssessment:CaseAssessment
   caseApplication:CaseApplication
   caseBudget:CaseBudget
+  historyEvent:HistoryEvent
 }
