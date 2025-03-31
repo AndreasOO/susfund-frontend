@@ -9,6 +9,7 @@ import {CaseManager} from './case-entity/case-manager';
 import {CaseStatus} from './case-entity/case-status';
 import {CaseDecisionType} from './case-entity/case-decision-type';
 import {CaseBudget} from './case-entity/case-budget';
+import {CaseAssessmentUtil} from './case-util/case-assessment-util';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +52,9 @@ export class CasesFetcherService {
                         historyEvent:caseDTO.historyEvent
                       }
     }))
+  }
+
+  public getCaseAssessmentUtilByCaseId(id:string | undefined):Observable<CaseAssessmentUtil> {
+    return this.http.get<CaseAssessmentUtil>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/assessment");
   }
 }

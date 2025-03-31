@@ -11,3 +11,10 @@
   <p>{{caseDetails().caseAssessment.assessmentResults[0].justification}}</p>
   <p>{{caseDetails().caseAssessment.assessmentResults[0].score}}</p>
 </div>
+
+<hr>
+<div *ngFor="let result of caseApplicationUtil?.assessmentResults">
+    <div *ngFor="let innerRes of result">
+        <p>{{innerRes.assessmentItem.title}}</p>
+    </div>
+</div>
