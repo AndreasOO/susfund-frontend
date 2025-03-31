@@ -1,16 +1,15 @@
 <div>
   <h1 class="mb-3">Application</h1>
-  <div *ngIf="sections" class="container">
-    <div *ngFor="let section of sections.keys()" class="row mb-4">
-      <div class="col-8">
-        <h3>{{ section }}</h3>
-
+  <div *ngIf="questions" class="container">
+    <div *ngFor="let sections of questions" class="row mb-4">
+      <h3>{{ sections[0]?.applicationQuestion.applicationSection.name}}</h3>
+      <div *ngFor="let question of sections" class="col-8">
         <div>
-          <div *ngFor="let entry of sections.get(section)?.entries()"  class="card rounded-4 p-3 bg-dark-subtle text-dark m-2">
-            <h4>{{ entry[0].title }}</h4>
-            <h5>{{ entry[0].preamble }}</h5>
-            <h6>{{ entry[0].assisting_text }}</h6>
-            <textarea class="form-control" rows="3" [value]="entry[1]"></textarea>
+          <div class="card rounded-4 p-3 bg-dark-subtle text-dark m-2">
+            <h4>{{ question.applicationQuestion.title }}</h4>
+            <h5>{{ question.applicationQuestion.preamble }}</h5>
+            <h6>{{ question.applicationQuestion.assisting_text }}</h6>
+            <textarea class="form-control" rows="3" [value]="question.answer"></textarea>
             <a class="btn btn-secondary m-2 col-2 ms-auto">Save</a>
           </div>
         </div>
