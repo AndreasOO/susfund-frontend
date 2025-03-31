@@ -1,21 +1,21 @@
-<div>
-  <h1 class="mb-3">Application</h1>
-  <div *ngIf="sections" class="container">
-    <div *ngFor="let section of sections.keys()" class="row mb-4">
-      <div class="col-8">
-        <h3>{{ section }}</h3>
+<!--<div>-->
+<!--  <h1 class="mb-3">Application</h1>-->
+<!--  <div *ngIf="sections" class="container">-->
+<!--    <div *ngFor="let section of sections.keys()" class="row mb-4">-->
+<!--      <div class="col-8">-->
+<!--        <h3>{{ section }}</h3>-->
 
-        <div>
-          <div *ngFor="let entry of sections.get(section)?.entries()"  class="card rounded-4 p-3 bg-dark-subtle text-dark m-2">
-            <h4>{{ entry[0].title }}</h4>
-            <h5>{{ entry[0].preamble }}</h5>
-            <h6>{{ entry[0].assisting_text }}</h6>
-            <textarea class="form-control" rows="3" [value]="entry[1]"></textarea>
-            <a class="btn btn-secondary m-2 col-2 ms-auto">Save</a>
-          </div>
-        </div>
+<!--        <div>-->
+<!--          <div *ngFor="let entry of sections.get(section)?.entries()"  class="card rounded-4 p-3 bg-dark-subtle text-dark m-2">-->
+<!--            <h4>{{ entry[0].title }}</h4>-->
+<!--            <h5>{{ entry[0].preamble }}</h5>-->
+<!--            <h6>{{ entry[0].assisting_text }}</h6>-->
+<!--            <textarea class="form-control" rows="3" [value]="entry[1]"></textarea>-->
+<!--            <a class="btn btn-secondary m-2 col-2 ms-auto">Save</a>-->
+<!--          </div>-->
+<!--        </div>-->
 
-      </div>
-    </div>
-  </div>
-</div>
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

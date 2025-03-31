@@ -3,7 +3,7 @@ import {ROUTER_OUTLET_DATA} from '@angular/router';
 import {CaseDetails} from '../../cases-services/case-entity/case-details';
 import {ApplicationQuestion} from '../../cases-services/case-entity/application-question';
 import {OnInit} from '@angular/core';
-import {ApplicationSection} from '../../cases-services/case-entity/application-section';
+import {QuestionResults} from '../../cases-services/case-entity/question-results';
 
 @Component({
   selector: 'app-case-application',
@@ -12,22 +12,17 @@ import {ApplicationSection} from '../../cases-services/case-entity/application-s
   styleUrl: './case-application.component.css'
 })
 export class CaseApplicationComponent implements OnInit {
-  caseDetails = inject(ROUTER_OUTLET_DATA) as Signal<CaseDetails>
-  public sections: Map<String, Map<ApplicationQuestion, String>> = new Map();
+  caseDetails = inject(ROUTER_OUTLET_DATA) as Signal<CaseDetails>;
+  public questions: QuestionResults[][] | undefined;
 
   ngOnInit() {
-    this.caseDetails().caseApplication?.questionResults?.forEach(questionResult => {
-      const currentSection = questionResult.applicationQuestion.applicationSection;
-      const question = questionResult.applicationQuestion;
-      const answer = questionResult.answer;
 
-      if (!this.sections.has(currentSection.name)) {
-        this.sections.set(currentSection.name, new Map<ApplicationQuestion, string>());
-      }
-
-      this.sections.get(currentSection.name)?.set(question, answer);
-    })
-
+    this.questions = [...new Set(this.caseDetails()
+      .caseApplication?.questionResults.map(result => result.applicationQuestion?.applicationSection))]
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map(section => {
+        return (this.caseDetails().caseApplication?.questionResults ?? [])
+          .filter(questionResult => questionResult.applicationQuestion?.applicationSection.id === section.id)
+      });
   }
 }
-
