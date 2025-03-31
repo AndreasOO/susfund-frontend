@@ -5,6 +5,7 @@ import {CaseDecisionType} from './case-decision-type';
 import {CaseDecision} from './case-decision';
 import {CaseAssessment} from './case-assessment';
 import {CaseApplication} from './case-application';
+import {CaseBudget} from './case-budget';
 
 export interface CaseDTO {
   id:number,
@@ -16,4 +17,5 @@ export interface CaseDTO {
   caseDecision:CaseDecision
   caseAssessment:CaseAssessment
   caseApplication:CaseApplication
+  caseBudget:CaseBudget
 }

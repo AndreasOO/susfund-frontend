@@ -1,5 +1,14 @@
 <div >
   <p>Budget: </p>
-  <p>{{caseDetails().id}}</p>
-  <p>{{caseDetails().name}}</p>
+  <p>Date last changed: {{caseDetails().caseBudget.dateLastChanged}}</p>
+  <p>Posts: </p>
+  <div *ngFor="let post of caseDetails().caseBudget.budgetPosts">
+    <p>Type: {{post.budgetPostType.name}}</p>
+    <p>Estimated cost: {{post.estimatedCost}}</p>
+  </div>
+  <hr>
+  <p>Financing Organizations: </p>
+  <div *ngFor="let financingOrganization of caseDetails().caseBudget.financingOrganizations" >
+    <p>Organization: {{financingOrganization.name}} --- {{financingOrganization.organizationType.name}}</p>
+  </div>
 </div>
