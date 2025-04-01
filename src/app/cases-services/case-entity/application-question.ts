@@ -4,6 +4,6 @@ export interface ApplicationQuestion {
   id:number,
   title:string,
   preamble:string,
-  assisting_text:string,
+  assistingText:string,
   applicationSection:ApplicationSection
 }
