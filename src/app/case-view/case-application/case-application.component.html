@@ -1,10 +1,20 @@
-<div >
-  <p>Application: </p>
-  <p>{{caseDetails().caseApplication.id}}</p>
-  <p>{{caseDetails().caseApplication.submission_date}}</p>
-  <p>{{caseDetails().caseApplication.questionResults[0].applicationQuestion.title}}</p>
-  <p>{{caseDetails().caseApplication.questionResults[0].applicationQuestion.preamble}}</p>
-  <p>{{caseDetails().caseApplication.questionResults[0].applicationQuestion.assisting_text}}</p>
-  <p>{{caseDetails().caseApplication.questionResults[0].applicationQuestion.applicationSection.name}}</p>
-  <p>{{caseDetails().caseApplication.questionResults[0].answer}}</p>
+<div>
+  <h1 class="mb-3">Application</h1>
+  <div *ngIf="questions" class="container">
+    <div *ngFor="let sections of questions" class="row mb-4">
+      <h3>{{ sections[0].applicationQuestion.applicationSection.name}}</h3>
+      <div *ngFor="let question of sections" class="col-8">
+        <div>
+          <div class="card rounded-4 p-3 bg-dark-subtle text-dark m-2">
+            <h4>{{ question.applicationQuestion.title }}</h4>
+            <h5>{{ question.applicationQuestion.preamble }}</h5>
+            <h6>{{ question.applicationQuestion.assisting_text }}</h6>
+            <textarea class="form-control" rows="3" [value]="question.answer"></textarea>
+            <a class="btn btn-secondary m-2 col-2 ms-auto">Save</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
