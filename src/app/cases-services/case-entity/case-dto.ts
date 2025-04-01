@@ -19,5 +19,5 @@ export interface CaseDTO {
   caseAssessment:CaseAssessment
   caseApplication:CaseApplication
   caseBudget:CaseBudget
-  historyEvent:HistoryEvent
+  historyEventList:HistoryEvent[]
 }

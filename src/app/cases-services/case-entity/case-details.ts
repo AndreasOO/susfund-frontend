@@ -19,5 +19,5 @@ export interface CaseDetails {
   caseApplication:CaseApplication
   caseAssessment:CaseAssessment
   caseBudget:CaseBudget
-  historyEvent:HistoryEvent
+  historyEventList:HistoryEvent[]
 }

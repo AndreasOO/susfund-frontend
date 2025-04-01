@@ -49,7 +49,7 @@ export class CasesFetcherService {
                         caseApplication:caseDTO.caseApplication,
                         caseAssessment:caseDTO.caseAssessment,
                         caseBudget:caseDTO.caseBudget,
-                        historyEvent:caseDTO.historyEvent
+                        historyEventList:caseDTO.historyEventList
                       }
     }))
   }
