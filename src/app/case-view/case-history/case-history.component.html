@@ -1,5 +1,9 @@
 <div >
   <p>History: </p>
-  <p>{{caseDetails().id}}</p>
-  <p>{{caseDetails().name}}</p>
+  <div *ngFor="let historyEvent of caseDetails().historyEventList">
+    <p>{{historyEvent.id}}</p>
+    <p>{{historyEvent.date}}</p>
+    <p>{{historyEvent.details}}</p>
+    <hr>
+  </div>
 </div>
