@@ -22,7 +22,15 @@ export class CaseMainViewComponent implements OnInit {
 
     ngOnInit() {
       this.caseId = this.router.url.split("/")[this.router.url.split("/").indexOf("cases")+1];
-      this.fetcher.getCaseById(this.caseId).subscribe(caseDetails => this.caseDetails = caseDetails!)
+      this.fetcher.getCaseById(this.caseId).subscribe(caseDetails => this.caseDetails = caseDetails!,
+
+
+                                                                                err => { if  (err.status === 0) {
+                                                                                  console.log(err.status);
+                                                                                  this.router.navigateByUrl("/login")
+                                                                                }
+                                                                                },
+                                                                                () => console.log("finished"))
       console.log(this.caseDetails)
     }
 
