@@ -10,7 +10,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let post of caseDetails().caseBudget.budgetPosts">
+    <tr *ngFor="let post of caseBudget?.budgetPosts">
       <td class="col-4">{{post.budgetPostType.name}}</td>
       <td class="col-4"> <input type="text" class="form-control"></td>
       <td class="col-4"> <input type="number" value="{{post.estimatedCost}}" class="text-end form-control"> </td>
@@ -19,7 +19,7 @@
   </table>
   <div class="row justify-content-between">
     <button class="btn btn-light col-3 m-4">Save</button>
-    <h4 class="col-3 m-4">Total: {{getTotal()}} </h4>
+    <h4 class="col-3 m-4">Total: {{ getTotal() }} </h4>
   </div>
 </div>
 
@@ -34,7 +34,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let organization of caseDetails().caseBudget.financingOrganizations">
+    <tr *ngFor="let organization of caseBudget?.financingOrganizations">
       <td class="col-4">{{organization.id}}</td>
       <td class="col-4">{{organization.name}}</td>
       <td class="col-4">
