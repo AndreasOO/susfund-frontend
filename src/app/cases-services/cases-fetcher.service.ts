@@ -63,4 +63,7 @@ export class CasesFetcherService {
     return this.http.get<CaseApplicationUtil>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/application");
 
   }
+  public getBudgetByCaseId(id:string | undefined):Observable<CaseBudget>{
+    return this.http.get<CaseBudget>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/budget");
+  }
 }
