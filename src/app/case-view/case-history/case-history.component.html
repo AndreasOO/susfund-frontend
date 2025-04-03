@@ -1,9 +1,18 @@
-<div >
-  <p>History: </p>
-  <div *ngFor="let historyEvent of caseDetails().historyEventList">
-    <p>{{historyEvent.id}}</p>
-    <p>{{historyEvent.date}}</p>
-    <p>{{historyEvent.details}}</p>
-    <hr>
-  </div>
+<div class="container my-4">
+  <h1 class="mb-4">History</h1>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let historyEvent of caseDetails().historyEventList">
+      <td class="col-2">{{historyEvent.date}}</td>
+      <td class="col-10">{{historyEvent.details}}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
