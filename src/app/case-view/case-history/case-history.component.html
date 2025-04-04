@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let historyEvent of caseDetails().historyEventList">
+    <tr *ngFor="let historyEvent of historyEventList || []">
       <td class="col-2">{{historyEvent.date}}</td>
       <td class="col-10">{{historyEvent.details}}</td>
     </tr>
