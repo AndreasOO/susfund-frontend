@@ -8,7 +8,8 @@ import {FooterModule} from './footer/footer.module';
 import {CaseViewModule} from './case-view/case-view.module';
 import {CasesListModule} from './cases-list/cases-list.module';
 import {CasesServicesModule} from './cases-services/cases-services.module';
-import {provideHttpClient} from '@angular/common/http';
+import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import {loggingInterceptor} from './auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import {provideHttpClient} from '@angular/common/http';
     CasesServicesModule
   ],
   providers: [
-    provideHttpClient()
+    provideHttpClient(
+      withInterceptors([loggingInterceptor])
+    )
   ],
   bootstrap: [AppComponent]
 })
