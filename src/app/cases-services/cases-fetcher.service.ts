@@ -71,4 +71,12 @@ export class CasesFetcherService {
   public getHistoryEventByCaseId(id:string | undefined):Observable<HistoryEvent[]> {
     return this.http.get<HistoryEvent[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/history")
   }
+
+  public getCaseManagerByCaseId(id:string | undefined):Observable<CaseManager> {
+    return this.http.get<CaseManager>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/casemanager")
+  }
+
+  public getAllCaseManagers():Observable<CaseManager[]> {
+    return this.http.get<CaseManager[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/casemanagers")
+  }
 }

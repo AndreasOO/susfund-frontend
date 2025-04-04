@@ -1,5 +1,24 @@
-<div >
+<div class="container mt-5 mx-5 bg-dark-subtle text-dark">
 <p>Case Overview: </p>
-  <p>{{caseDetails().id}}</p>
-  <p>{{caseDetails().name}}</p>
+  <p>{{caseDetails?.id}}</p>
+  <p>{{caseDetails?.name}}</p>
 </div>
+
+
+<div class="container mt-5 mx-5 p-5 bg-dark-subtle text-dark rounded-4">
+  <h3 class="pb-3">Case Manager: </h3>
+  <select class="form-select" aria-label="case manager select">
+    <option selected>{{currentCaseManager?.name}}</option>
+    <option *ngFor="let casemanager of caseManagerList" value="{{casemanager.id}}">{{casemanager.name}}</option>
+  </select>
+
+<hr>
+  <h3 class="pb-3">Case Controller: </h3>
+  <select class="form-select" aria-label="case manager select">
+    <option selected>{{currentCaseManager?.name}}</option>
+    <option selected>{{currentCaseManager?.name}}</option>
+    <option *ngFor="let casemanager of caseManagerList" value="{{casemanager.id}}">{{casemanager.name}}</option>
+  </select>
+</div>
+
+
