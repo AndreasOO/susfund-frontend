@@ -1,6 +1,7 @@
-import {Component, inject, Signal} from '@angular/core';
-import {ROUTER_OUTLET_DATA} from '@angular/router';
-import {CaseDetails} from '../../cases-services/case-entity/case-details';
+import {Component, inject, Signal, OnInit} from '@angular/core';
+import {Router, ROUTER_OUTLET_DATA} from '@angular/router';
+import {CasesFetcherService} from '../../cases-services/cases-fetcher.service';
+import {HistoryEvent} from '../../cases-services/case-entity/history-event';
 
 @Component({
   selector: 'app-case-history',
@@ -8,6 +9,16 @@ import {CaseDetails} from '../../cases-services/case-entity/case-details';
   templateUrl: './case-history.component.html',
   styleUrl: './case-history.component.css'
 })
-export class CaseHistoryComponent {
-  caseDetails = inject(ROUTER_OUTLET_DATA) as Signal<CaseDetails>
+export class CaseHistoryComponent implements OnInit {
+
+  caseId: string | undefined
+  historyEventList: HistoryEvent[] | undefined
+
+  constructor(public router:Router, public fetcher:CasesFetcherService) {
+  }
+
+  ngOnInit() {
+    this.caseId = this.router.url.split("/")[this.router.url.split("/").indexOf("cases")+1];
+    this.fetcher.getHistoryEventByCaseId(this.caseId).subscribe(historyEventList => this.historyEventList = historyEventList!)
+  }
 }
