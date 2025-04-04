@@ -12,6 +12,7 @@ import {CaseBudget} from './case-entity/case-budget';
 import {CaseAssessmentUtil} from './case-util/case-assessment-util';
 import {CaseApplicationUtil} from './case-util/case-application-util';
 import {HistoryEvent} from './case-entity/history-event';
+import {CaseDecision} from './case-entity/case-decision';
 
 @Injectable({
   providedIn: 'root'
@@ -58,6 +59,18 @@ export class CasesFetcherService {
 
   public getCaseAssessmentUtilByCaseId(id:string | undefined):Observable<CaseAssessmentUtil> {
     return this.http.get<CaseAssessmentUtil>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/assessment");
+  }
+
+  public getApplicationUtilByCaseId(id:string | undefined):Observable<CaseApplicationUtil> {
+    return this.http.get<CaseApplicationUtil>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/application");
+
+  }
+  public getBudgetByCaseId(id:string | undefined):Observable<CaseBudget>{
+    return this.http.get<CaseBudget>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/budget");
+  }
+
+  public getHistoryEventByCaseId(id:string | undefined):Observable<HistoryEvent[]> {
+    return this.http.get<HistoryEvent[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/history")
   }
 
   public getApplicationUtilByCaseId(id:string | undefined):Observable<CaseApplicationUtil> {

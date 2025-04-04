@@ -1,5 +1,5 @@
-import {Component, inject, Signal} from '@angular/core';
-import {ROUTER_OUTLET_DATA} from '@angular/router';
+import {Component, inject, OnInit, Signal} from '@angular/core';
+import {Router, ROUTER_OUTLET_DATA} from '@angular/router';
 import {CaseDetails} from '../../cases-services/case-entity/case-details';
 
 @Component({
