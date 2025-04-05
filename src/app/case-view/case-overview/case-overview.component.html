@@ -39,7 +39,6 @@
   <h4 class="pb-3">Case Controller </h4>
   <select class="form-select" aria-label="case manager select">
     <option selected>{{currentCaseManager?.name}}</option>
-    <option selected>{{currentCaseManager?.name}}</option>
     <option *ngFor="let casemanager of caseManagerList" value="{{casemanager.id}}">{{casemanager.name}}</option>
   </select>
   <a href="#" class="btn btn btn-secondary col-1 mt-2">Save</a>

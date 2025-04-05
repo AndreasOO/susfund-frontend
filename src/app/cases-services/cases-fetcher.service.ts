@@ -12,6 +12,8 @@ import {CaseBudget} from './case-entity/case-budget';
 import {CaseAssessmentUtil} from './case-util/case-assessment-util';
 import {CaseApplicationUtil} from './case-util/case-application-util';
 import {HistoryEvent} from './case-entity/history-event';
+import {CaseDecision} from './case-entity/case-decision';
+import {CaseDecisionResult} from './case-entity/case-decision-result';
 
 @Injectable({
   providedIn: 'root'
@@ -78,5 +80,13 @@ export class CasesFetcherService {
 
   public getAllCaseManagers():Observable<CaseManager[]> {
     return this.http.get<CaseManager[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/casemanagers")
+  }
+
+  public getCaseDecisionByCaseId(id:string | undefined):Observable<CaseDecision> {
+    return this.http.get<CaseDecision>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/decision")
+  }
+
+  public getAllCaseDecisionResultOptions():Observable<CaseDecisionResult[]> {
+    return this.http.get<CaseDecisionResult[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/casedecisionresults")
   }
 }
