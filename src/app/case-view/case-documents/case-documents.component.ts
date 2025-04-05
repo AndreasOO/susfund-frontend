@@ -9,5 +9,4 @@ import {CaseDetails} from '../../cases-services/case-entity/case-details';
   styleUrl: './case-documents.component.css'
 })
 export class CaseDocumentsComponent {
-  caseDetails = inject(ROUTER_OUTLET_DATA) as Signal<CaseDetails>
 }
