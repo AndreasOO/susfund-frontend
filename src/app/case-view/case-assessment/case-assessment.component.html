@@ -1,20 +1,19 @@
-<div >
-  <p>Assessment: </p>
-  <p>{{caseDetails().id}}</p>
-  <p>{{caseDetails().name}}</p>
-  <p>{{caseDetails().caseAssessment.id}}</p>
-  <p>{{caseDetails().caseAssessment.assessmentDate}}</p>
-  <p>{{caseDetails().caseAssessment.assessmentResults[0].assessmentItem.title}}</p>
-  <p>{{caseDetails().caseAssessment.assessmentResults[0].assessmentItem.preamble}}</p>
-  <p>{{caseDetails().caseAssessment.assessmentResults[0].assessmentItem.assistingText}}</p>
-  <p>{{caseDetails().caseAssessment.assessmentResults[0].assessmentItem.assessmentSection.name}}</p>
-  <p>{{caseDetails().caseAssessment.assessmentResults[0].justification}}</p>
-  <p>{{caseDetails().caseAssessment.assessmentResults[0].score}}</p>
-</div>
-
-<hr>
-<div *ngFor="let result of caseApplicationUtil?.assessmentResults">
-    <div *ngFor="let innerRes of result">
-        <p>{{innerRes.assessmentItem.title}}</p>
+<div>
+  <h1 class="mb-3">Application</h1>
+  <div *ngIf="caseAssessmentUtil?.assessmentResults" class="container">
+    <div *ngFor="let sections of caseAssessmentUtil?.assessmentResults" class="row mb-4">
+      <h3>{{ sections[0].assessmentItem.assessmentSection.name}}</h3>
+      <div *ngFor="let assessmentResult of sections" class="col-8">
+        <div>
+          <div class="card rounded-4 p-3 bg-dark-subtle text-dark m-2">
+            <h4>{{ assessmentResult.assessmentItem.title }}</h4>
+            <h5>{{ assessmentResult.assessmentItem.preamble }}</h5>
+            <h6>{{ assessmentResult.assessmentItem.assistingText }}</h6>
+            <textarea class="form-control" rows="3" [value]="assessmentResult.justification"></textarea>
+            <a class="btn btn-secondary m-2 col-2 ms-auto">Save</a>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
