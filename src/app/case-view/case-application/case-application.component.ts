@@ -7,6 +7,7 @@ import {ApplicationSection} from '../../cases-services/case-entity/application-s
 import {QuestionResults} from '../../cases-services/case-entity/question-results';
 import {CasesFetcherService} from '../../cases-services/cases-fetcher.service';
 import {CaseApplicationUtil} from '../../cases-services/case-util/case-application-util';
+import {ApplicationUpdateRequest} from '../../cases-services/case-util/application-update-request';
 
 @Component({
   selector: 'app-case-application',
@@ -15,9 +16,8 @@ import {CaseApplicationUtil} from '../../cases-services/case-util/case-applicati
   styleUrl: './case-application.component.css'
 })
 export class CaseApplicationComponent implements OnInit {
-  caseDetails = inject(ROUTER_OUTLET_DATA) as Signal<CaseDetails>
 
-  public caseId:string | undefined
+  public caseId:string | undefined;
   public caseApplicationUtil: CaseApplicationUtil | undefined;
 
   constructor(public router:Router, public fetcher:CasesFetcherService) {
@@ -28,6 +28,18 @@ export class CaseApplicationComponent implements OnInit {
     this.caseId = this.router.url.split("/")[this.router.url.split("/").indexOf("cases")+1];
     this.fetcher.getApplicationUtilByCaseId(this.caseId).subscribe(caseApplicationUtil => this.caseApplicationUtil = caseApplicationUtil)
 
+  }
+
+  public saveUpdate(input:string, questionId:number){
+    const request: ApplicationUpdateRequest ={
+      questionId: questionId,
+      answer: input
+    }
+    const response = this.fetcher.updateApplicationQuestion(this.caseId!, request).subscribe(response =>{
+      console.log(response)
+    },
+      error => console.log(error)
+    );
   }
 }
 

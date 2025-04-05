@@ -23,4 +23,5 @@ export class CaseAssessmentComponent implements OnInit {
     this.caseId = this.router.url.split("/")[this.router.url.split("/").indexOf("cases")+1];
     this.fetcher.getCaseAssessmentUtilByCaseId(this.caseId).subscribe(caseAssessmentUtil => this.caseAssessmentUtil = caseAssessmentUtil!)
   }
+
 }

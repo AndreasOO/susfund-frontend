@@ -14,6 +14,8 @@ import {CaseApplicationUtil} from './case-util/case-application-util';
 import {HistoryEvent} from './case-entity/history-event';
 import {CaseDecision} from './case-entity/case-decision';
 import {CaseDecisionResult} from './case-entity/case-decision-result';
+import {ApplicationUpdateRequest} from './case-util/application-update-request';
+import {CaseApplication} from './case-entity/case-application';
 
 @Injectable({
   providedIn: 'root'
@@ -88,5 +90,9 @@ export class CasesFetcherService {
 
   public getAllCaseDecisionResultOptions():Observable<CaseDecisionResult[]> {
     return this.http.get<CaseDecisionResult[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/casedecisionresults")
+  }
+
+  public updateApplicationQuestion(caseId:string, applicationUpdateRequest:ApplicationUpdateRequest):Observable<any> {
+    return this.http.put("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + caseId + "/application", applicationUpdateRequest)
   }
 }
