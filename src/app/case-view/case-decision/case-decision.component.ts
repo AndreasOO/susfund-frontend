@@ -1,6 +1,10 @@
-import {Component, inject, Signal} from '@angular/core';
-import {ROUTER_OUTLET_DATA} from '@angular/router';
+import {Component, inject, Signal, OnInit} from '@angular/core';
+import {ROUTER_OUTLET_DATA, Router} from '@angular/router';
 import {CaseDetails} from '../../cases-services/case-entity/case-details';
+import {CaseManager} from '../../cases-services/case-entity/case-manager';
+import {CasesFetcherService} from '../../cases-services/cases-fetcher.service';
+import {CaseDecision} from '../../cases-services/case-entity/case-decision';
+import {CaseDecisionResult} from '../../cases-services/case-entity/case-decision-result';
 
 @Component({
   selector: 'app-case-decision',
@@ -8,6 +12,21 @@ import {CaseDetails} from '../../cases-services/case-entity/case-details';
   templateUrl: './case-decision.component.html',
   styleUrl: './case-decision.component.css'
 })
-export class CaseDecisionComponent {
-  caseDetails = inject(ROUTER_OUTLET_DATA) as Signal<CaseDetails>
+export class CaseDecisionComponent implements OnInit{
+  caseManagerList:CaseManager[] | undefined
+  currentCaseManager:CaseManager | undefined
+  caseId:string | undefined
+  currentDecision:CaseDecision | undefined
+  decisionOptions:CaseDecisionResult[] | undefined
+
+  constructor(private router:Router, private fetcher:CasesFetcherService) {
+  }
+
+  ngOnInit() {
+    this.fetcher.getAllCaseManagers().subscribe(caseManagerList => this.caseManagerList = caseManagerList!)
+    this.caseId = this.router.url.split("/")[this.router.url.split("/").indexOf("cases")+1];
+    this.fetcher.getCaseManagerByCaseId(this.caseId).subscribe(caseManager => this.currentCaseManager = caseManager!)
+    this.fetcher.getCaseDecisionByCaseId(this.caseId).subscribe(currentDecision => this.currentDecision = currentDecision!)
+    this.fetcher.getAllCaseDecisionResultOptions().subscribe(decisionOptions => this.decisionOptions = decisionOptions!)
+  }
 }

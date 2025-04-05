@@ -1,5 +1,18 @@
-<div >
-  <p>Decision: </p>
-  <p>{{caseDetails().id}}</p>
-  <p>{{caseDetails().name}}</p>
+<div class="container mt-5 mb-5 mx-5 p-5 bg-dark-subtle text-dark rounded-4">
+  <h4 class="pb-3">Decision</h4>
+  <select class="form-select" aria-label="case manager select">
+    <option selected>{{currentDecision?.caseDecisionResult?.name}}</option>
+    <option *ngFor="let decisionResult of decisionOptions" value="{{decisionResult.id}}">{{decisionResult.name}}</option>
+  </select>
+
+  <hr>
+  <h5>Motivation</h5>
+  <textarea class="form-control" rows="3"></textarea>
+  <hr>
+  <h5 class="pb-3">Case Controller </h5>
+  <select class="form-select" aria-label="case manager select">
+    <option selected>{{currentCaseManager?.name}}</option>
+    <option *ngFor="let casemanager of caseManagerList" value="{{casemanager.id}}">{{casemanager.name}}</option>
+  </select>
+  <a href="#" class="btn btn btn-secondary col-1 mt-2">Save</a>
 </div>
