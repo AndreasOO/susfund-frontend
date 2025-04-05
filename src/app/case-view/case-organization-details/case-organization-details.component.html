@@ -1,6 +1,52 @@
-<div >
-  <p>Organization Details: </p>
-  <p>{{caseDetails().organization.id}}</p>
-  <p>{{caseDetails().organization.name}}</p>
-  <p>{{caseDetails().organization.organizationType.name}}</p>
+<div class="container bg-dark-subtle text-dark mt-5 mb-5 pb-2 rounded-1">
+  <h2 class="p-2">Organization Details</h2>
+  <hr>
+  <h4>General information</h4>
+  <div class="p-3">
+
+    <h6>Organization number: {{caseOrganization?.id}}</h6>
+    <h6>Organization name: {{caseOrganization?.name}}</h6>
+    <h6>Organization type: {{caseOrganization?.organizationType?.name}}</h6>
+  </div>
+  <h4>Financial Rating</h4>
+  <div class="p-3">
+
+    <h6>put stuff here</h6>
+    <h6>put stuff here</h6>
+    <h6>put stuff here</h6>
+  </div>
+
+  <h4>Internal Rating</h4>
+  <p>based on previous case assessments</p>
+  <div class="p-3">
+
+    <h6>put stuff here</h6>
+    <h6>put stuff here</h6>
+    <h6>put stuff here</h6>
+  </div>
+</div>
+
+<div class="container bg-dark-subtle text-dark mt-5 mb-5 pb-2 rounded-1">
+  <h2 class="p-2">Related Cases</h2>
+  <hr>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Status</th>
+      <th scope="col">Decision Type</th>
+      <th scope="col">Case Manager</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class="col-1"><a>1</a></td>
+      <td class="col-3"><a>case name</a></td>
+      <td class="col-2"><span>Approved</span></td>
+      <td class="col-2"><span>Payment Request</span></td>
+      <td class="col-4"><span>Josefin Törner</span></td>
+    </tr>
+    </tbody>
+  </table>
 </div>
