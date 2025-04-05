@@ -3,6 +3,8 @@ import {CaseDetails} from '../../cases-services/case-entity/case-details';
 import {Router, ROUTER_OUTLET_DATA} from '@angular/router';
 import {CasesFetcherService} from '../../cases-services/cases-fetcher.service';
 import {CaseManager} from '../../cases-services/case-entity/case-manager';
+import {CaseBudget} from '../../cases-services/case-entity/case-budget';
+
 
 
 @Component({
@@ -17,6 +19,7 @@ export class CaseOverviewComponent implements OnInit{
   currentCaseManager:CaseManager | undefined
   caseManagerList:CaseManager[] | undefined
   caseDetails:CaseDetails | undefined
+  caseBudget : CaseBudget | undefined
 
   constructor(public router:Router, private fetcher:CasesFetcherService) {
 
@@ -27,5 +30,10 @@ export class CaseOverviewComponent implements OnInit{
     this.fetcher.getCaseById(this.caseId).subscribe(caseDetails => this.caseDetails = caseDetails!)
     this.fetcher.getCaseManagerByCaseId(this.caseId).subscribe(caseManager => this.currentCaseManager = caseManager!)
     this.fetcher.getAllCaseManagers().subscribe(caseManagerList => this.caseManagerList = caseManagerList!)
+    this.fetcher.getBudgetByCaseId(this.caseId).subscribe(caseBudget => this.caseBudget = caseBudget!)
+  }
+
+  getTotalBudget(): number {
+    return this.caseBudget?.budgetPosts.map(post => post.estimatedCost).reduce((a, b) => a + b, 0) ?? 0;
   }
 }
