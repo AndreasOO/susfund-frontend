@@ -89,4 +89,8 @@ export class CasesFetcherService {
   public getAllCaseDecisionResultOptions():Observable<CaseDecisionResult[]> {
     return this.http.get<CaseDecisionResult[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/casedecisionresults")
   }
+
+  public getOrganizationByCaseId(id:string | undefined):Observable<Organization> {
+    return this.http.get<Organization>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/organization")
+  }
 }
