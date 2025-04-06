@@ -39,6 +39,22 @@ export class CasesFetcherService {
     })))
   }
 
+  public getCasesLazyByCaseOrganization(id:string | undefined):Observable<CaseLazy[]> {
+    return this.http.get<CaseDTO[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/"+id+"/casesrelatedtocaseorganization")
+      .pipe(map(casesDTOs => casesDTOs.map(caseDTO => {
+        return {
+          id: caseDTO.id,
+          name:caseDTO.name,
+          companyName:caseDTO.organization.name,
+          companyId:caseDTO.organization.id,
+          caseManager:caseDTO.caseManager.name,
+          controller:caseDTO.caseManager.name,
+          caseStatus:caseDTO.caseStatus.name,
+          caseDecisionType:caseDTO.caseDecisionType.name
+        }
+      })))
+  }
+
   public getCaseById(id:string | undefined):Observable<CaseDetails> {
     return this.http.get<CaseDTO>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id)
                     .pipe(map(caseDTO => {

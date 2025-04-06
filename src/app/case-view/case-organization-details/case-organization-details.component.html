@@ -40,12 +40,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td class="col-1"><a>1</a></td>
-      <td class="col-3"><a>case name</a></td>
-      <td class="col-2"><span>Approved</span></td>
-      <td class="col-2"><span>Payment Request</span></td>
-      <td class="col-4"><span>Josefin Törner</span></td>
+    <tr *ngFor="let cases of casesRelatedToOrganization" >
+      <td class="col-1"><a>{{cases?.id}}</a></td>
+      <td class="col-3"><a>{{cases?.name}}</a></td>
+      <td class="col-2"><span>{{cases?.caseStatus}}</span></td>
+      <td class="col-2"><span>{{cases?.caseDecisionType}}</span></td>
+      <td class="col-4"><span>{{cases?.caseManager}}</span></td>
     </tr>
     </tbody>
   </table>
