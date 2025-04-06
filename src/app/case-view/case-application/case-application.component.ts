@@ -30,12 +30,12 @@ export class CaseApplicationComponent implements OnInit {
 
   }
 
-  public saveUpdate(input:string, questionId:number){
-    const request: ApplicationUpdateRequest ={
+  public saveUpdate(updatedAnswer:string, questionId:number){
+    const update: ApplicationUpdateRequest ={
       questionId: questionId,
-      answer: input
+      answer: updatedAnswer
     }
-    const response = this.fetcher.updateApplicationQuestion(this.caseId!, request).subscribe(response =>{
+    const response = this.fetcher.updateApplicationQuestion(this.caseId!, update).subscribe(response =>{
       console.log(response)
     },
       error => console.log(error)
