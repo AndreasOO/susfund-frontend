@@ -102,6 +102,15 @@ export class CasesFetcherService {
     return this.http.get<CaseDecision>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/decision")
   }
 
+  public getCaseDecisionTypeByCaseId(id:string | undefined):Observable<CaseDecisionType> {
+    return this.http.get<CaseDecisionType>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/decisiontype")
+  }
+
+  public getCaseStatusByCaseId(id:string | undefined):Observable<CaseStatus> {
+    return this.http.get<CaseStatus>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/status")
+  }
+
+
   public getAllCaseDecisionResultOptions():Observable<CaseDecisionResult[]> {
     return this.http.get<CaseDecisionResult[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/casedecisionresults")
   }

@@ -1,6 +1,6 @@
-import {Component, inject, Input, Signal, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CaseDetails} from '../../cases-services/case-entity/case-details';
-import {Router, ROUTER_OUTLET_DATA} from '@angular/router';
+import {Router} from '@angular/router';
 import {CasesFetcherService} from '../../cases-services/cases-fetcher.service';
 import {CaseManager} from '../../cases-services/case-entity/case-manager';
 import {CaseBudget} from '../../cases-services/case-entity/case-budget';

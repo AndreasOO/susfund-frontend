@@ -1,6 +1,4 @@
-import {Component, inject, Signal} from '@angular/core';
-import {ROUTER_OUTLET_DATA} from '@angular/router';
-import {CaseDetails} from '../../cases-services/case-entity/case-details';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-case-documents',

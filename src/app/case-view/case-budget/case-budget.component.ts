@@ -1,7 +1,5 @@
-import {Component, inject, Signal, OnInit} from '@angular/core';
-import {Router, ROUTER_OUTLET_DATA} from '@angular/router';
-import {CaseDetails} from '../../cases-services/case-entity/case-details';
-import {pipe} from "rxjs";
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {CasesFetcherService} from '../../cases-services/cases-fetcher.service';
 import {CaseBudget} from '../../cases-services/case-entity/case-budget';
 
