@@ -29,15 +29,17 @@
 </div>
 
 
-<div class="container mt-5 mb-5 mx-5 p-5 bg-dark-subtle text-dark rounded-4">
-  <h4 class="pb-3">Case Manager </h4>
+<div class="container bg-dark-subtle text-dark mt-5 mb-5 pb-2 rounded-1">
+  <h2 class="p-2">Case Assignment</h2>
+  <hr>
+  <h4 class="pb-3">Case Manager</h4>
   <select class="form-select" aria-label="case manager select">
     <option selected>{{currentCaseManager?.name}}</option>
     <option *ngFor="let casemanager of caseManagerList" value="{{casemanager.id}}">{{casemanager.name}}</option>
   </select>
 
 <hr>
-  <h4 class="pb-3">Case Controller </h4>
+  <h4 class="pb-3">Case Controller</h4>
   <select class="form-select" aria-label="case manager select">
     <option selected>{{currentCaseManager?.name}}</option>
     <option *ngFor="let casemanager of caseManagerList" value="{{casemanager.id}}">{{casemanager.name}}</option>
