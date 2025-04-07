@@ -1,16 +1,16 @@
 <div class="col-12 d-flex justify-content-center">
   <div class="bg-dark-subtle p-5 rounded-2">
-  <form>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
     <!-- Email input -->
     <div data-mdb-input-init class="form-outline mb-4 text-black">
-      <label class="form-label" for="form2Example1">Email address</label>
-      <input type="email" id="form2Example1" class="form-control" />
+      <label class="form-label" for="Username">Username</label>
+      <input type="text" id="Username" name="username" ngModel required class="form-control" />
     </div>
 
     <!-- Password input -->
     <div data-mdb-input-init class="form-outline mb-4 text-black">
-      <label class="form-label" for="form2Example2">Password</label>
-      <input type="password" id="form2Example2" class="form-control" />
+      <label class="form-label" for="Password">Password</label>
+      <input type="password" id="Password"  name="password" ngModel required class="form-control" />
     </div>
 
     <!-- 2 column grid layout for inline styling -->
@@ -25,15 +25,15 @@
 
       <div class="col">
         <!-- Simple link -->
-        <a href="#!" class="text-black">Forgot password?</a>
+        <a href="#" class="text-black">Forgot password?</a>
       </div>
     </div>
 
     <!-- Submit button -->
-    <button  type="button" class="btn bg-gradient text-light ms-auto bg-dark">Sign in</button>
+    <button type="submit" class="btn bg-gradient text-light ms-auto bg-dark">Sign in</button>
     <!-- Register buttons -->
     <div class="text-center text-black">
-      <p>Not a member? <a href="#!">Register</a></p>
+      <p>Not a member? <a href="#">Register</a></p>
       <p>or sign up with:</p>
       <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
         <i class="fab fa-facebook-f"></i>
@@ -51,7 +51,9 @@
         <i class="fab fa-github"></i>
       </button>
     </div>
-  </form>
-
-
+    </form>
+      <form (ngSubmit)="hello()">
+          <button type="submit">Button</button>
+      </form>
+  </div>
 </div>

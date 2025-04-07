@@ -14,6 +14,8 @@ import {CaseApplicationUtil} from './case-util/case-application-util';
 import {HistoryEvent} from './case-entity/history-event';
 import {CaseDecision} from './case-entity/case-decision';
 import {CaseDecisionResult} from './case-entity/case-decision-result';
+import {LoginRequest} from './case-util/login-request';
+import {TokenBearer} from './case-util/token-bearer';
 
 @Injectable({
   providedIn: 'root'
@@ -119,8 +121,8 @@ export class CasesFetcherService {
     return this.http.get<Organization>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/organization")
   }
 
-  public login(username:string, password:string): Observable<any>{
-    return  this.http.get<Organization>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/auth/login")
+  public login(loginRequest:LoginRequest): Observable<TokenBearer>{
+    return this.http.put<TokenBearer>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/auth/login", loginRequest)
   }
 
 
