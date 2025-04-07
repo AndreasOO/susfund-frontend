@@ -1,7 +1,7 @@
-import {Component, inject, Signal} from '@angular/core';
-import {ROUTER_OUTLET_DATA} from '@angular/router';
-import {CaseDetails} from '../../cases-services/case-entity/case-details';
-import {pipe} from "rxjs";
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {CasesFetcherService} from '../../cases-services/cases-fetcher.service';
+import {CaseBudget} from '../../cases-services/case-entity/case-budget';
 
 @Component({
   selector: 'app-case-budget',
@@ -9,10 +9,21 @@ import {pipe} from "rxjs";
   templateUrl: './case-budget.component.html',
   styleUrl: './case-budget.component.css'
 })
-export class CaseBudgetComponent {
-  caseDetails = inject(ROUTER_OUTLET_DATA) as Signal<CaseDetails>
+export class CaseBudgetComponent implements OnInit{
 
-  getTotal():number {
-    return this.caseDetails().caseBudget.budgetPosts.map(post => post.estimatedCost).reduce((a,b) => a+b);
+  caseId : string | undefined
+  caseBudget : CaseBudget | undefined
+
+  constructor(public router:Router, public fetcher:CasesFetcherService) {
   }
+
+  ngOnInit() {
+    this.caseId = this.router.url.split("/")[this.router.url.split("/").indexOf("cases")+1];
+    this.fetcher.getBudgetByCaseId(this.caseId).subscribe(caseBudget => this.caseBudget = caseBudget!)
+  }
+
+  getTotal(): number {
+    return this.caseBudget?.budgetPosts.map(post => post.estimatedCost).reduce((a, b) => a + b, 0) ?? 0;
+  }
+
 }

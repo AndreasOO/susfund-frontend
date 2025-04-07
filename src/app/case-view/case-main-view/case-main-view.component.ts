@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { Router} from '@angular/router';
 import {OnInit} from '@angular/core';
 import {CasesFetcherService} from '../../cases-services/cases-fetcher.service';
-import {CaseDTO} from '../../cases-services/case-entity/case-dto';
 import {CaseDetails} from '../../cases-services/case-entity/case-details';
-import {ROUTER_OUTLET_DATA} from '@angular/router';
+
 
 @Component({
   selector: 'app-case-main-view',
