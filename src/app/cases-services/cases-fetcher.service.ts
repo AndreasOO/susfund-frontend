@@ -118,4 +118,10 @@ export class CasesFetcherService {
   public getOrganizationByCaseId(id:string | undefined):Observable<Organization> {
     return this.http.get<Organization>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/organization")
   }
+
+  public login(username:string, password:string): Observable<any>{
+    return  this.http.get<Organization>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/auth/login")
+  }
+
+
 }
