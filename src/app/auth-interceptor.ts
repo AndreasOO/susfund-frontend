@@ -7,16 +7,21 @@ export function loggingInterceptor(req: HttpRequest<unknown>, next: HttpHandlerF
   const router= inject(Router);
 
   const token = localStorage.getItem('tokenBearer');
-  const authRequest = req.clone({
+
+  if (!token && !req.url.includes('login')) {
+    router.navigate(['/login']);
+  }
+
+  const authRequest = token ? req.clone({
     setHeaders: {
       Authorization: token!},
-  })
+  }) : req;
 
   return next(authRequest).pipe(
     tap(
       event => {
         if (event instanceof HttpResponse){
-          if (router.url.indexOf('login') > -1) {
+          if (router.url.includes('login')) {
             router.navigate(['/cases']);
           }
         }
