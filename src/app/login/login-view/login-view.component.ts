@@ -27,7 +27,8 @@ export class LoginViewComponent {
     }
 
     this.fetcher.login(loginInfo).subscribe( tokenBearer => {
-      console.log(tokenBearer.token)
+      localStorage.setItem('tokenBearer', tokenBearer.token);
+      console.log("Token received on login request: "+ tokenBearer.token)
     })
 
   }
