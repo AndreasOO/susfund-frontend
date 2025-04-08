@@ -1,6 +1,8 @@
-import {Input, Component, inject, Signal} from '@angular/core';
-import {ROUTER_OUTLET_DATA} from '@angular/router';
-import {CaseDetails} from '../../cases-services/case-entity/case-details';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {CasesFetcherService} from '../../cases-services/cases-fetcher.service';
+import {CaseStatus} from '../../cases-services/case-entity/case-status';
+import {CaseDecisionType} from '../../cases-services/case-entity/case-decision-type';
 
 @Component({
   selector: 'app-case-sidebar-menu',
@@ -11,7 +13,18 @@ import {CaseDetails} from '../../cases-services/case-entity/case-details';
 
 
 
-export class CaseSidebarMenuComponent {
-  @Input() caseDetails:CaseDetails|undefined;
+export class CaseSidebarMenuComponent implements OnInit{
+  caseId:string | undefined
+  caseStatus:CaseStatus | undefined
+  caseDecisionType:CaseDecisionType | undefined
+
+  constructor(public router:Router, private fetcher:CasesFetcherService) {
+  }
+
+  ngOnInit() {
+    this.caseId = this.router.url.split("/")[this.router.url.split("/").indexOf("cases")+1];
+    this.fetcher.getCaseStatusByCaseId(this.caseId).subscribe(caseStatus => this.caseStatus = caseStatus!)
+    this.fetcher.getCaseDecisionTypeByCaseId(this.caseId).subscribe(caseDecisionType => this.caseDecisionType = caseDecisionType!)
+  }
 
 }

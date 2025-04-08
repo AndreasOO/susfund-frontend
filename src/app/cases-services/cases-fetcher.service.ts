@@ -17,6 +17,8 @@ import {CaseDecisionResult} from './case-entity/case-decision-result';
 import {ApplicationUpdateRequest} from './case-util/application-update-request';
 import {CaseApplication} from './case-entity/case-application';
 import {AssessmentUpdateRequest} from './case-util/assessment-update-request';
+import {LoginRequest} from './case-util/login-request';
+import {TokenBearer} from './case-util/token-bearer';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +42,22 @@ export class CasesFetcherService {
                         caseDecisionType:caseDTO.caseDecisionType.name
                       }
     })))
+  }
+
+  public getCasesLazyByCaseOrganization(id:string | undefined):Observable<CaseLazy[]> {
+    return this.http.get<CaseDTO[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/"+id+"/casesrelatedtocaseorganization")
+      .pipe(map(casesDTOs => casesDTOs.map(caseDTO => {
+        return {
+          id: caseDTO.id,
+          name:caseDTO.name,
+          companyName:caseDTO.organization.name,
+          companyId:caseDTO.organization.id,
+          caseManager:caseDTO.caseManager.name,
+          controller:caseDTO.caseManager.name,
+          caseStatus:caseDTO.caseStatus.name,
+          caseDecisionType:caseDTO.caseDecisionType.name
+        }
+      })))
   }
 
   public getCaseById(id:string | undefined):Observable<CaseDetails> {
@@ -89,6 +107,15 @@ export class CasesFetcherService {
     return this.http.get<CaseDecision>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/decision")
   }
 
+  public getCaseDecisionTypeByCaseId(id:string | undefined):Observable<CaseDecisionType> {
+    return this.http.get<CaseDecisionType>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/decisiontype")
+  }
+
+  public getCaseStatusByCaseId(id:string | undefined):Observable<CaseStatus> {
+    return this.http.get<CaseStatus>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/status")
+  }
+
+
   public getAllCaseDecisionResultOptions():Observable<CaseDecisionResult[]> {
     return this.http.get<CaseDecisionResult[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/casedecisionresults")
   }
@@ -100,4 +127,14 @@ export class CasesFetcherService {
   public updateAssessmentItem(caseId:string, update:AssessmentUpdateRequest):Observable<any>{
     return this.http.put("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + caseId + "/assessment", update)
   }
+
+  public getOrganizationByCaseId(id:string | undefined):Observable<Organization> {
+    return this.http.get<Organization>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + id + "/organization")
+  }
+
+  public login(loginRequest:LoginRequest): Observable<TokenBearer>{
+    return this.http.put<TokenBearer>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/auth/login", loginRequest)
+  }
+
+
 }
