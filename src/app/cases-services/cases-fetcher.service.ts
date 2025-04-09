@@ -14,6 +14,9 @@ import {CaseApplicationUtil} from './case-util/case-application-util';
 import {HistoryEvent} from './case-entity/history-event';
 import {CaseDecision} from './case-entity/case-decision';
 import {CaseDecisionResult} from './case-entity/case-decision-result';
+import {ApplicationUpdateRequest} from './case-util/application-update-request';
+import {CaseApplication} from './case-entity/case-application';
+import {AssessmentUpdateRequest} from './case-util/assessment-update-request';
 import {LoginRequest} from './case-util/login-request';
 import {TokenBearer} from './case-util/token-bearer';
 
@@ -115,6 +118,14 @@ export class CasesFetcherService {
 
   public getAllCaseDecisionResultOptions():Observable<CaseDecisionResult[]> {
     return this.http.get<CaseDecisionResult[]>("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/casedecisionresults")
+  }
+
+  public updateApplicationQuestion(caseId:string, update:ApplicationUpdateRequest):Observable<any> {
+    return this.http.put("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + caseId + "/application", update)
+  }
+
+  public updateAssessmentItem(caseId:string, update:AssessmentUpdateRequest):Observable<any>{
+    return this.http.put("http://localhost:8080/SusFund-1.0-SNAPSHOT/api/cases/" + caseId + "/assessment", update)
   }
 
   public getOrganizationByCaseId(id:string | undefined):Observable<Organization> {
